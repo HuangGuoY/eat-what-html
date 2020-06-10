@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
+
+*{
+  font-family: "Raleway", "PingFang SC", "Microsoft Yahei", sans-serif;
+}
+
+html, body { scroll-behavior:smooth; }
+#nav-icon{
+  position: relative;
+  top: -2px;
+  width: 50px;
+  margin-right: 1em;
+}
+section {
+  margin: 50px 0;
+}
+.col{
+  margin-bottom: 5%;
+}
+.card-header {
+  border-bottom: none !important;
+}
+.money-span {
+  color: rgb(255, 145, 0);
+}
+#BSK-Logo {
+  width: 80px;
+  margin-right: .5em;
+}
+.baneer-w3ls + .baneer-w3ls{
+  margin-top: 50px;
+}
+.about{
+  background: url(image/hamburger.jpg) no-repeat left;
+  background-size: cover;
+  -webkit-background-size: contain;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  min-height: 500px;
+}
+/* 轮播图高度 */
+.swiper-container {
+  width: 90%;
+  height: 250px;
+}
+.swiper-slide {
+  overflow: hidden;
+}
+a#back-to-top{
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  background: #222;
+  padding: 6px 12px;
+  -webkit-transition: all .5s ease-in-out;
+  -moz-transition: all .5s ease-in-out;
+  -o-transition: all .5s ease-in-out;
+  -ms-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+  color: #fff;
+}
+.swiper-container{
+  --swiper-navigation-size: 30px;/* 设置按钮大小 */
+}
+
+footer {
+  text-align: center;
+  margin: 5%;
+}
+@media (min-width: 1200px){
+  .container, .container-lg, .container-md, .container-sm, .container-xl {
+      max-width: 80% !important; 
+  }
+}
