@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>决定吃什么的时候到了</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="eat-what.css">
+  <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
+  <link href="static/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="static/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="static/fontawesome/css/solid.css" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand mb-0 h1" href="#">
+        <img src="image/cheer.png" alt="吃货" id="nav-icon">
+        Eat/ 吃货
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#">决定今天吃啥</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <section>
+    <div class="container">
+      <div class="board-wrap">
+        <div class="board">
+          <div class="row">
+            <div class="card">
+              <div class="back"></div>
+              <div class="front"></div>
+            </div>
+            <div class="card">
+              <div class="back"></div>
+              <div class="front"></div>
+            </div>
+            <div class="card">
+              <div class="back"></div>
+              <div class="front"></div>
+            </div>
+            <div class="card">
+              <div class="back"></div>
+              <div class="front"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="card">
+              <div class="back"></div>
+              <div class="front"></div>
+            </div>
+            <div class="card">
+              <div class="back"></div>
+              <div class="front"></div>
+            </div>
+            <div class="card">
+              <div class="back"></div>
+              <div class="front"></div>
+            </div>
+            <div class="card">
+              <div class="back"></div>
+              <div class="front"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="card">
+              <div class="back"></div>
+              <div class="front"></div>
+            </div>
+            <div class="card">
+              <div class="back"></div>
+              <div class="front"></div>
+            </div>
+            <div class="card">
+              <div class="back"></div>
+              <div class="front"></div>
+            </div>
+            <div class="card">
+              <div class="back"></div>
+              <div class="front"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="card">
+              <div class="back"></div>
+              <div class="front"></div>
+            </div>
+            <div class="card">
+              <div class="back"></div>
+              <div class="front"></div>
+            </div>
+            <div class="card">
+              <div class="back"></div>
+              <div class="front"></div>
+            </div>
+            <div class="card">
+              <div class="back"></div>
+              <div class="front"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      'use strict'
+      let arr = ['可乐', '雪碧', '螺蛳粉','老友粉','桂林米粉','生榨粉','肠粉','维他饮料','萃茶师奶茶','查理王子奶茶','肯德基','麦当劳','必胜客','蛙小侠','冰淇淋','小田豆浆','粥','不吃了，减肥']
+      let frontDom = document.getElementsByClassName("front");
+      var cards = [].slice.call(document.querySelectorAll('.card')),
+        getRandom = function (n) {
+          return Math.floor(Math.random() * n)
+        }
+
+      cards.forEach(function (card, index) {
+        
+        // Apply rainbow gamma of colors to cards
+        var color = 'hsl(' + getRandom(360) + ',80%' + ',60%)'
+        card.firstElementChild.style.backgroundColor = color
+
+        // 点击翻动卡片事件
+        card.addEventListener('click', function (e) {
+          if (!this.classList.contains('flip') || this.classList.contains('tada')) {
+            this.classList.remove('tada')
+            this.classList.add('flip')
+            let arrLength = arr.length
+            let arrIndex = getRandom(arrLength)
+            let randomItem = arr[arrIndex]
+            arr.splice(arrIndex,1)
+            this.style.cursor = 'default'
+            frontDom[index].innerHTML = '<p>' + randomItem + '</p>'
+            cards.splice(cards.indexOf(card), 1)
+          }
+        })
+      })
+
+      //  随机抖动卡片
+      function tada(timestamp) {
+
+        if (cards.length < 1) {
+
+          clearTimeout(timer)
+        } else {
+
+          cards.forEach(function (card) {
+            card.classList.remove('tada')
+          })
+
+          var randomCard = getRandom(cards.length)
+
+          setTimeout(function () {
+            cards[randomCard].classList.add('tada')
+          }, 0)
+
+          setTimeout(tada, 4000)
+        }
+      }
+
+      // Call tada
+      var timer = setTimeout(tada, 4000)
+    })()
+  </script>
+</body>
+
+</html>
