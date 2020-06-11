@@ -28,7 +28,7 @@ section {
   margin-right: .5em;
 }
 .baneer-w3ls + .baneer-w3ls{
-  margin-top: 50px;
+  margin: 20px;
 }
 .about{
   background: url(image/hamburger.jpg) no-repeat left;
@@ -37,7 +37,6 @@ section {
   -moz-background-size: cover;
   -o-background-size: cover;
   -moz-background-size: cover;
-  min-height: 500px;
 }
 /* 轮播图高度 */
 .swiper-container {
@@ -46,6 +45,13 @@ section {
 }
 .swiper-slide {
   overflow: hidden;
+}
+
+.med-drink {
+  text-align: center;
+}
+.drink-header img{
+  max-width: 80%;
 }
 a#back-to-top{
   position: fixed;
@@ -64,9 +70,13 @@ a#back-to-top{
   --swiper-navigation-size: 30px;/* 设置按钮大小 */
 }
 
+
+
 footer {
   text-align: center;
-  margin: 5%;
+  background: #212121;
+  color: aliceblue;
+  padding: 2em 0;
 }
 @media (min-width: 1200px){
   .container, .container-lg, .container-md, .container-sm, .container-xl {
